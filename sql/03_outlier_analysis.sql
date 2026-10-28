@@ -1,22 +1,15 @@
-
-/*
-===============================================================================
 Project: Sales Data Cleaning & Quality Validation
 Database: PostgreSQL
-
 Purpose:
 - Identify outliers in QUANTITYORDERED using the IQR method.
 - Review and summarize potential outlier records.
 - Create a separate cleaned dataset for further analysis.
-
 Data Policy:
 - Preserve the original source table.
 - Exclude outliers only from the cleaned dataset.
 ===============================================================================
 */
-
-
--- Step 6: Identify any outliers in the QUANTITYORDERED column
+-- 1. Identify any outliers in the QUANTITYORDERED column
 -- and determine how to handle those records.
 
 WITH quartile AS (
@@ -48,13 +41,11 @@ WHERE t.quantityordered < b.lower_bound
 ORDER BY t.quantityordered DESC;
 
 
--- Step 7: After cleaning the data, save it into a new table
+-- 2. After cleaning the data, save it into a new table
 -- named SALES_DATASET_RFM_PRJ_CLEAN.
-
 -- Recreate the cleaned table to ensure the script can be rerun safely.
 
 DROP TABLE IF EXISTS public.sales_dataset_rfm_prj_clean;
-
 CREATE TABLE public.sales_dataset_rfm_prj_clean AS
 WITH quartile AS (
     SELECT
