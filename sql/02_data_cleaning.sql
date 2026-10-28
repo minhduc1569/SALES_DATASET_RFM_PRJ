@@ -1,4 +1,3 @@
-
 -- Project: Sales Data Cleaning & Quality Validation
 -- Database: PostgreSQL
 -- Purpose: Check missing values and transform customer/date fields.
