@@ -10,7 +10,7 @@ This personal SQL project focuses on data cleaning, data quality validation, and
 - Identify missing and blank values in key fields.
 - Split and standardize customer contact names.
 - Extract quarter, month, and year from order dates.
-- Detect outliers in the quantity ordered column using the IQR method.
+- Detect outliers in the quantity ordered column using the Interquartile Range (IQR) method.
 - Create a cleaned dataset for further analysis.
 
 ## 3. Tools & Technologies
@@ -31,13 +31,16 @@ The dataset is intended for personal learning and portfolio development.
 2. Data quality checks
 3. Customer name transformation
 4. Date feature extraction
-5. Outlier detection and handling
-6. Creation of a cleaned dataset
+5. Outlier detection using the IQR method
+6. Cleaned dataset creation and validation
 
 ## 6. Repository Structure
 
-- `sql/01_data_type_conversion.sql`: Converts columns to suitable data types.
-- `sql/02_data_cleaning.sql`: Checks missing values and transforms customer and date fields.
+- `sql/01_data_type_conversion.sql`: Converts columns to appropriate data types.
+- `sql/02_data_cleaning.sql`: Checks missing values and transforms customer contact names and date fields.
+- `sql/03_outlier_analysis.sql`: Identifies outliers using the IQR method and creates a cleaned dataset.
+- `README.md`: Documents the project objectives, workflow, and SQL techniques.
+- `.gitignore`: Specifies files and directories to exclude from version control.
 
 ## 7. Key SQL Techniques
 
@@ -48,9 +51,10 @@ The dataset is intended for personal learning and portfolio development.
 - Common Table Expressions (CTEs)
 - `PERCENTILE_CONT`
 - IQR-based outlier detection
+- `CREATE TABLE AS SELECT`
 
 ## 8. Notes
 
-This is an ongoing personal project. The SQL scripts and data-cleaning decisions will be refined as the project develops.
+This is an ongoing personal project developed for learning and portfolio purposes. The SQL scripts may be refined as the project develops.
 
-The scripts should be reviewed and executed in the appropriate order. Outlier removal should only be performed after validating the affected records and documenting the rationale.
+The scripts should be reviewed and executed in the appropriate order. Outlier records should be reviewed before removal, and data-cleaning decisions should be documented to maintain data quality and reproducibility.
