@@ -1,4 +1,3 @@
-
 -- Project: Sales Data Cleaning & Quality Validation
 -- Database: PostgreSQL
 -- Purpose: Convert columns to appropriate data types.
