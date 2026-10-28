@@ -1,13 +1,13 @@
-Project: Sales Data Cleaning & Quality Validation
-Database: PostgreSQL
-Purpose:
-- Identify outliers in QUANTITYORDERED using the IQR method.
-- Review and summarize potential outlier records.
-- Create a separate cleaned dataset for further analysis.
-Data Policy:
-- Preserve the original source table.
-- Exclude outliers only from the cleaned dataset.
-===============================================================================
+--Project: Sales Data Cleaning & Quality Validation
+--Database: PostgreSQL
+--Purpose:
+---- Identify outliers in QUANTITYORDERED using the IQR method.
+---- Review and summarize potential outlier records.
+---- Create a separate cleaned dataset for further analysis.
+--Data Policy:
+---- Preserve the original source table.
+---- Exclude outliers only from the cleaned dataset.
+-------------------------------------------------------------------
 */
 -- 1. Identify any outliers in the QUANTITYORDERED column
 -- and determine how to handle those records.
