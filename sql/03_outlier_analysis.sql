@@ -1,3 +1,14 @@
+-- Project: Sales Data Cleaning & Quality Validation
+-- Database: PostgreSQL
+-- Purpose:
+-- 1. Detect outliers in QUANTITYORDERED using IQR.
+-- 2. Summarize potential outliers.
+-- 3. Create a separate analysis table without IQR outliers.
+--
+-- Important:
+-- The source table is not modified or deleted.
+-- Validate outliers before excluding them from analysis.
+-------
 -- Step 6: Identify any outliers in the QUANTITYORDERED column and determine how to handle those records.
 WITH quartile AS (
     SELECT 
