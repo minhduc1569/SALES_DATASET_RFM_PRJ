@@ -16,6 +16,6 @@ ALTER TABLE public.sales_dataset_rfm_prj
     ALTER COLUMN sales TYPE NUMERIC(10, 2) USING sales::numeric,
     ALTER COLUMN msrp TYPE NUMERIC(10, 2) USING msrp::numeric;
 
--- 3. Convert orderdate to DATE.
+--- 3. Convert orderdate to DATE.
 ALTER TABLE public.sales_dataset_rfm_prj 
     ALTER COLUMN orderdate TYPE DATE USING orderdate::date;
