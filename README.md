@@ -1,5 +1,5 @@
 
-# Sales Data Cleaning & Quality Validation
+# Sales Data Processing, Quality Validation & Cohort Analysis, 
 
 ## 1. Project Overview
 
