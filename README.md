@@ -44,6 +44,7 @@ The analysis focused on customer purchasing behavior and retention patterns.
 - Calculated customer retention rates across different cohort periods.
 - Developed a retention heatmap to visualize customer repurchase behavior.
 - Analyzed purchasing patterns and generated business insights.
+  
 ## 6. Repository Structure
 
 ```text
@@ -88,7 +89,25 @@ The IQR method identified **8 potential outlier records** in the `quantityordere
 - Retain records with missing `quantityordered` values for further review.
 - Validate record counts after creating the cleaned dataset.
 
-## 9. Notes & Limitations
+### 9. Analysis Methodology
+
+- Cohort Definition: Customers were grouped based on
+  their first purchase month.
+- Retention Calculation: Measured the percentage of
+  customers returning to make subsequent purchases.
+- Visualization: Used Excel formulas, supporting
+  calculation tables and conditional formatting
+  to build a retention heatmap.
+  
+  ### 10. Key Findings
+
+- Analyzed 92 unique customers across 21 monthly cohorts.
+- Identified a 26% three-month repeat purchase rate.
+- Observed a median of 7 months until the second purchase.
+- Visualized customer retention trends through
+  cohort-based heatmaps.
+  
+## 11. Notes & Limitations
 
 This is an ongoing personal project developed for learning and portfolio purposes.
 
