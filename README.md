@@ -37,7 +37,13 @@ The dataset is used for personal learning and portfolio development.
 5. **Outlier Detection:** Apply the IQR method to identify potential outliers in `quantityordered`.
 6. **Cleaned Dataset Creation:** Create a separate dataset excluding identified outliers.
 7. **Data Validation:** Compare source and cleaned record counts to verify the cleaning results.
-
+After completing data preparation and quality validation in PostgreSQL, the processed sales dataset was used for further analysis in Microsoft Excel.
+The analysis focused on customer purchasing behavior and retention patterns.
+**Key Activities:**
+- Organized customer transactions into monthly cohorts based on their first purchase date.
+- Calculated customer retention rates across different cohort periods.
+- Developed a retention heatmap to visualize customer repurchase behavior.
+- Analyzed purchasing patterns and generated business insights.
 ## 6. Repository Structure
 
 ```text
