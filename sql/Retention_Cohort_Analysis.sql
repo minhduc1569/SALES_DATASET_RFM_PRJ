@@ -156,4 +156,3 @@ GROUP BY
     cohort_month,
     cohort_size
 ORDER BY cohort_month;
-
