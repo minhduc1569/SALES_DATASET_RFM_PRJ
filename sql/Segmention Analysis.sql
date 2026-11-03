@@ -1,6 +1,7 @@
 -- ========================================================
 -- Project: RFM Customer Segmentation Analysis
 -- Database: PostgreSQL
+--Source: Original Sales Dataset
 -- ========================================================
 
 -- Step 1: Calculate raw RFM metrics (Recency, Frequency, Monetary)
