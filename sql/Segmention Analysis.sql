@@ -1,5 +1,9 @@
+-- ========================================================
+-- Project: RFM Customer Segmentation Analysis
+-- Database: PostgreSQL
+-- ========================================================
 
----- Tính toán ba chỉ số RFM
+-- Step 1: Calculate raw RFM metrics (Recency, Frequency, Monetary)
 WITH reference_date AS (
     SELECT MAX(orderdate) + INTERVAL '1 day' AS snapshot_date
     FROM public.sales_dataset_rfm_prj_clean
@@ -13,30 +17,9 @@ rfm AS (
         SUM(sales) AS monetary
     FROM public.sales_dataset_rfm_prj_clean
     GROUP BY customername
-)
-SELECT *
-FROM rfm
-ORDER BY monetary DESC;
----- Chấm điểm RFM từ 1 đến 5
-WITH reference_date AS (
-    SELECT MAX(orderdate) + INTERVAL '1 day' AS snapshot_date
-    FROM public.sales_dataset_rfm_prj_clean
 ),
 
-rfm AS (
-    SELECT
-        customername,
-
-        (SELECT snapshot_date FROM reference_date)::DATE
-            - MAX(orderdate) AS recency,
-
-        COUNT(DISTINCT ordernumber) AS frequency,
-
-        SUM(sales) AS monetary
-
-    FROM public.sales_dataset_rfm_prj_clean
-    GROUP BY customername
-),
+-- Step 2: Score RFM metrics from 1 to 5 using NTILE
 rfm_scores AS (
     SELECT
         customername,
@@ -58,14 +41,16 @@ rfm_scores AS (
 
     FROM rfm
 ),
+
+-- Step 3: Concatenate RFM scores into a single cell code (e.g., '555')
 rfm_codes AS (
     SELECT
         *,
         CONCAT(r_score, f_score, m_score) AS rfm_code
-
     FROM rfm_scores
 )
----- PHÂN NHÓM KHÁCH HÀNG BẰNG RFM
+
+-- Step 4: Map RFM cell codes to customer segments and sort
 SELECT
     customername,
     recency,
