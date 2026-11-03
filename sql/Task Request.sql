@@ -1,4 +1,6 @@
-TASK 1: Doanh thu theo từng ProductLine, Year và DealSize
+-- ==========================================
+-- TASK 1: Revenue by ProductLine, Year, and DealSize
+-- ==========================================
 SELECT
     productline,
     EXTRACT(YEAR FROM orderdate)::INTEGER AS year_id,
@@ -10,9 +12,12 @@ GROUP BY
     EXTRACT(YEAR FROM orderdate),
     dealsize
 ORDER BY revenue DESC;
-=> Classic Cars có doanh thu nổi bật nhất, đặc biệt ở nhóm đơn hàng Medium trong năm 2003 và 2004.
-----------------------------------
-TASK 2: Đâu là tháng có bán tốt nhất mỗi năm
+-- => Classic Cars shows the most outstanding revenue, especially within the Medium deal size category in 2003 and 2004.
+
+
+-- ==========================================
+-- TASK 2: Best-Selling Month of Each Year
+-- ==========================================
 WITH monthly_revenue AS (
     SELECT
         EXTRACT(YEAR FROM orderdate)::INTEGER AS year_id,
@@ -44,10 +49,12 @@ SELECT
 FROM ranked_months
 WHERE ranking = 1
 ORDER BY year_id;
-=> Nhận xét: Tháng 11 là tháng có doanh thu cao nhất trong cả năm 2003 và 2004. Năm 2005 có tháng 5 đứng đầu trong phạm vi dữ liệu hiện có.
-----------------------------------
-TASK 3: Product line nào được bán nhiều ở tháng 11
+-- => Insights: November generated the highest revenue in both 2003 and 2004. In 2005, May ranked highest within the available data range.
 
+
+-- ==========================================
+-- TASK 3: Top Performing Product Line in November
+-- ==========================================
 SELECT
     productline,
     EXTRACT(MONTH FROM orderdate)::INTEGER AS month_id,
@@ -59,9 +66,12 @@ GROUP BY
     productline,
     EXTRACT(MONTH FROM orderdate)
 ORDER BY revenue DESC;
-=> Classic Cars là ProductLine có doanh thu cao nhất trong tháng 11, đạt 825,156.26 với 46 đơn hàng.
-----------------------------------
-TASK 4: Đâu là sản phẩm có doanh thu tốt nhất ở UK mỗi năm
+-- => Classic Cars is the top-performing product line in November, reaching 825,156.26 in revenue across 46 orders.
+
+
+-- ==========================================
+-- TASK 4: Best-Selling Product Line in the UK Each Year
+-- ==========================================
 WITH uk_revenue AS (
     SELECT
         EXTRACT(YEAR FROM orderdate)::INTEGER AS year_id,
@@ -91,7 +101,7 @@ SELECT
     ranking
 FROM ranked_revenue
 ORDER BY year_id, ranking;
-=>
-+ Classic Cars dẫn đầu doanh thu tại UK trong năm 2003 và 2004.
-+ Motorcycles đứng đầu năm 2005.
-+ Năm 2005 có dữ liệu chưa đầy đủ cả năm nên cần lưu ý khi so sánh.
+-- => Insights:
+-- + Classic Cars led the revenue in the UK for 2003 and 2004.
+-- + Motorcycles took the top spot in 2005.
+-- + Note: The 2005 dataset is incomplete for the full year, which should be considered when making comparisons.
